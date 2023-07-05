@@ -17,14 +17,14 @@ def hello_1(name: str = "Marvin"):
 
 
 @task
-def say_hello_parallel(name: str):
+def say_hello_parallel_1(name: str):
     run_deployment("hello_1/default", parameters={"name": name})
 
 
 @flow
-def hello_parallel(names: list = NAMES):
+def hello_parallel_1(names: list = NAMES):
     for name in names:
-        say_hello_parallel.submit(name)
+        say_hello_parallel_1.submit(name)
 
 
 if __name__ == "__main__":
