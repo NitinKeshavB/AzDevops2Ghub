@@ -11,14 +11,14 @@ NAMES = [
 
 
 @flow
-def hello(name: str = "Marvin"):
+def hello_1(name: str = "Marvin"):
     logger = get_run_logger()
     logger.info(f"Hello, {name}!")
 
 
 @task
 def say_hello_parallel(name: str):
-    run_deployment("hello/default", parameters={"name": name})
+    run_deployment("hello_1/default", parameters={"name": name})
 
 
 @flow
@@ -29,4 +29,4 @@ def hello_parallel(names: list = NAMES):
 
 if __name__ == "__main__":
     with tags("local"):
-        hello()
+        hello_1()
